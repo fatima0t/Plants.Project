@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up and Sign In form</title>
+    <script src="https://kit.fontawesome.com/64be22047d.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon"
+        href="{% static 'rapid-detection-of-plant-disease-low-resolution-logo-color-on-transparent-background.png' %}">
+    <script type="text/javascript"
+        src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Q6HZc94fu8J_PTAruXaDil-eEHjua-ik1FkPQQRJxGj8_goytZENZj_wcXhXm5RGD9n_aEAtVHjxCHpRwDb-PW89l4W6VTDypyG6gG6v20tc2xOq7sQHvmrmkY3d1epnVYf7m2mV_P8jbR5v3ChrgP0hvCXaAIcqeibJGhpWLyqvf1dd36MXklccdJayu9R_tp25CPKVLUMN7MSRo5-Zdzn0EETsCbOjtvUhI7-IJBMySmfNXdjbb9VCkwwqb-3-J3iGSDw2kbtj9xZKNjE6kznuuFEUrQJfQeBjKnIjZbiv0E1Ulh-kOwJmwLd3OyTe4ZPw9Vk5hg63t-bb9XUZY7C51voyM8RnDo_Vk4X_3tMEAXsEh4DscZj7k6YIhUZm3snFUIDNfXKN-bR0iT6xALMJckJe702bEJ6znFf0rtoqoWr8runOhWJRroIavB8tPtYlJ5i6qfDHsa6Vu18xVKGBquZoPLFi4HOxyHLl22kpS1p1GaHU11pxbr9Gd_-FZ0z5Z55VXYQ4S0x16GO53UzaQA-cgnYR-Y2iWQtXD3vlplggoFh7X4KQ6Qgsu0BAgbKMt31s1Fl1GPqD2s19KARcFuRdye7PiiJdOgaiIJ-dxmJ8wLaScMfHYRp3oIOw5NbV9nBP1SaUJy3O72fk1XRPln9pARA9my7IRdZ9Mnir0OypmM0QKnPLW5r-I_lfIuP96N1FPfRDf2M4qBiPfnAVLeY9M7wIoWhkSgeC5SL4LkED2LxOGefCSh9ygL75ktSr-o_HteT5Auj7iPySRjYQfK-IhGAzKVaYXVPtJypheDUQHbtnTq_8_ve1G3b3ALQMNK7YPO3olmYEUxCry4nkG5K0ST3I3YRALaAvoxL2PQ4rsOowHgQeJu8UuO0vX7HnA7pAsiZDO1Oc1at3CwAAmF8wIXA5pdfuF2L8-q_XCpAGVe_5D-py7U4sH_fOBpOZw0vCVSmc18u4xn8QEclAwDHqNI5HQ12-66rPBM52XnONq31So7LZ5nGeIQrHvaZI5sfhff_YNOaZufZ_9n5kiEr-wek7f_URe0P6NqfGXDk-eUIS9XnIzVY_5uyxD-1Vq6G5w54YAISOpZqSBU8eRjupxn_uYLQ4HLKmHdiYWbALgSzs2zz4rRcwvjE5949cp-ClOEmPn08aqYJBHb-ehR5AIdJ0hJoh5JSiuDR5aTef_0KfKmvcuxpnVhYhwxD_nK3rA-BC0vTSobwVnol-ZFa1jSfEtnuJq22guH4Rwwq38Pq0zcyflY_JwSV1BuyHZq25kejxeMONavKn5I9r6hlUBU2wXHZkTHzeuZdmQICT4v3cbvdg4ngyLaNQzbOpYTllAlkdq8HHLsfyTJ79BLeBmLopc-gquJJMa_fGhqzmyCuHrZOZIhgiQgDYrkz8oLhx2fFrXX5Ro_i6YjRpjDpBve8xfcU-zGXLYWTIwNxn0LSklIU356NF63O0X0-T4GG6g6V2JuQMNmoFKO2Fko0aT4_JvpGnvV1zf0yB7jXQc8YBJg6Hl0SLfSYnAelv1IbWK3wtpwaG5_avOz8T57iGE7aXzFPoVe1MCW6jPF_CLu187rrCvnL0M4Kv"
+        charset="UTF-8"></script>
+    <script src="https://kit.fontawesome.com/64be22047d.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(3, 32, 11, 0.8), rgba(20, 32, 1, 0.8)),
+            url("{% static 'pexels-luriko-yamaguchi-2350377.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .form-box {
+            width: 90%;
+            max-width: 450px;
+            height: 650px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 50px 60px 70px;
+            text-align: center;
+            border-radius: 50px 5px;
+        }
+
+        .form-box h1 {
+            font-size: 30px;
+            margin-bottom: 60px;
+            color: #063806;
+            position: relative;
+            font-family: fantasy;
+        }
+
+        .form-box h1::after {
+            content: '';
+            width: 30px;
+            height: 4px;
+            border-radius: 3px;
+            background: #0e6f25;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            /*Shift the element to left half of it's width*/
+        }
+
+        .profile {
+            width: 100px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            top: -50%;
+            left: calc(50%, -50%);
+        }
+
+        .input-field {
+            background: #eaeaea;
+            margin: 15px 0;
+            border-radius: 3px;
+            display: flex;
+            /*flexable, Control layout and position of element */
+            align-items: center;
+            max-height: 65px;
+            /*transition: max-height 0.5s;/*the maximum height an element can have,0.5s is duration,By adding a transition to max-height, you can create a smooth animation when the height of the element changes.*/
+            overflow: hidden;
+            /*Hidden from view*/
+        }
+
+        .input-field1 {
+            background: #eaeaea;
+            margin: 15px 0;
+            border-radius: 3px;
+            align-items: center;
+            max-height: 65px;
+            transition: max-height 0.5s;
+            overflow: hidden;
+        }
+
+        input {
+            width: 100%;
+            background: transparent;
+            border: 0;
+            outline: 0;
+            padding: 18px 15px;
+
+        }
+
+        .input-field i {
+            margin-left: 15px;
+            color: #999;
+        }
+
+        .lost-field {
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .lost-field p a {
+            text-decoration: none;
+            color: #3c00a3;
+        }
+
+        .btn-field {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            /*space between element */
+            align-items: center;
+            align-content: center;
+        }
+
+        .btn-field button {
+            flex-basis: 48%;
+            background: #0e6f25;
+            color: #fff;
+            height: 40px;
+            border-radius: 20px;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            transition: background 1s;
+            /* any changes to the background property (in this case, the background color) should be animated over a duration of 1 second.*/
+        }
+
+        .input-group {
+            height: 200px;
+        }
+
+        .btn-field button.disable {
+            background: #eaeaea;
+            color: #555;
+
+        }
+
+        .btnsubmit {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            align-content: center;
+        }
+
+        .btnsubmit button {
+            flex-basis: 60%;
+            color: #0e6f25;
+            background-color: #fff;
+            height: 60px;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            transition: background 1s;
+            display: inline-block;
+            /*behave like an inline element (flows with the surrounding content horizontally) while still retaining block-level properties (such as setting width and height).*/
+            font-size: 32px;
+            margin-top: 20px;
+        }
+
+        .btnsubmit .btnsubmit .signin {
+            display: none;
+        }
+        .hidden-form {
+            display: none;
+        }
+
+        h4 {
+            color: #063806;
+            position: relative;
+            font-family: fantasy;
+            margin-left: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <img src="{% static 'pexels-luriko-yamaguchi-2350377.jpg' %}" class="profile">
+
+            {% for msg in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong></strong> {{ msg }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="close"></button>
+            </div>
+            {% endfor %}
+            <div class="btn-field">
+                <button type="button" id="signupBtn">Sign Up</button>
+                <button type="button" id="signinBtn" class="disable">Sign In</button>
+            </div><br><br>
+            <!--SignUp form-->
+            <form action="" method="post" id="myform1">
+                <h1 id="title">Sign Up</h1>
+                <!--User name-->
+                <div class="input-group">
+                    <div class="input-field" id="namefield" aria-valuetext="User_Name">
+                        <i class="fa-solid fa-user"></i>
+                        <h4> User_Name:</h4>
+                        {{ form.ename }}
+                    </div>
+                    <!--Email-->
+                    <div class="input-field" id="mailfield">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h4> Email:</h4>
+                        {{ form.eemail }}
+                    </div>
+                    <!--Password-->
+                    <div class="input-field" id="pass">
+                        <i class="fa-solid fa-lock"></i>
+                        <h4> Password:</h4>
+                        {{ form.econtact }}
+                    </div>
+                    <!--Password 2-->
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <h4> Password:</h4>
+                        {{ form.eid}}
+                    </div>
+                </div><br>
+                <br>
+                <div class="btnsubmit">
+                    {% csrf_token %}<br><br><br>
+                    <button type="submit" id="btn1" name='signup' class="signup"><i
+                            class="fa-solid fa-user-plus"></i></button><br>
+                </div>
+            </form>
+
+            <!--SignIn form-->
+            <form action="" method="post" id="myform" class="hidden-form">
+                <h1 id="title">Sign In</h1>
+                <!--SignIn form-->
+                <div class="input-group">
+                    <!--Email-->
+                    <div class="input-field" id="mailfield">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h4> Email:</h4>
+                        {{ form.eemail }}
+                    </div>
+                    <!--Password-->
+                    <div class="input-field" id="pass">
+                        <i class="fa-solid fa-lock"></i>
+                        <h4> Password:</h4>
+                        {{ form.econtact }}
+                    </div>
+                    <!--<div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        {{ form.eid}}
+                        <span>Password again</span>
+                    </div>-->
+                </div><br>
+                <div class="input-field1" id="lostpass" style=background-color:#fff>
+                    <p>Lost password <a href="http://localhost:8000/reset_password_admin">Click Here!</a></p>
+                </div>
+                <br>
+                <div class="btnsubmit">
+                    {% csrf_token %}<br>
+                    <button type="submit" id="btn2" name='signin' class="signin"><i
+                            class="fa-solid fa-right-to-bracket"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        var form = document.getElementById("myform");
+        var form1 = document.getElementById("myform1");
+
+        signinBtn.onclick = function () {
+            form.style.display = 'block';
+            form1.style.display = 'none';
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
+        }
+        signupBtn.onclick = function () {
+            form.style.display = 'none';
+            form1.style.display = 'block';
+            signinBtn.classList.add("disable");
+            signupBtn.classList.remove("disable");
+        }
+    </script>
+</body>
+
+</html>

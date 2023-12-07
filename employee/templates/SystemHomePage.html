@@ -1,0 +1,288 @@
+<!--Done!-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rapid Diagnose Of Plant diseases</form></title>
+        <script src="https://kit.fontawesome.com/64be22047d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static 'Systempagestyle.css' %}">
+        <link rel="icon" type="image/x-icon" href="{% static 'rapid-detection-of-plant-disease-low-resolution-logo-color-on-transparent-background.png' %}">
+        <style>
+            * {
+    margin: 0;
+    /*space around an element, external*/
+    padding: 0;
+    /*space between content, internal*/
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: url("{% static 'pexels-irina-iriser-1420004.jpg' %}");
+    background-position: center;
+    background-size: cover;
+}
+
+#myBtn {
+    display: none;
+    /*default hide*/
+    position: fixed;
+    /*stay fixed*/
+    bottom: 20px;
+    /*position 20px from the bottom*/
+    right: 30px;
+    /*position 20px from the right*/
+    z-index: 99;
+    /*the stacking order of the element. An element with a higher z-index value will appear on top of elements with lower values*/
+    font-size: 18px;
+    border: none;
+    outline: none;
+    /*It removes the outline around the element when it is focused.*/
+    background-color: rgb(14, 37, 19);
+    color: white;
+    cursor: pointer;
+    /* Changes the cursor to a pointer when hovering over the element, indicating it is clickable.*/
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: #555;
+}
+
+.navbar {
+    height: 80px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.profile-img {
+    width: 10%;
+    height: 60px;
+    padding: 10px 100px;
+}
+
+.navbar ul {
+    float: right;
+    margin-right: 20px;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin: 0 8px;
+    display: inline-block;
+    line-height: 80px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 6px 13px;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Roboto Narrow Bold', sans-serif;
+    transition: 0.4s;
+}
+
+.navbar ul li a.active:hover {
+    background: gray;
+    border-radius: 2px;
+}
+
+.profile-img1 {
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    padding: 50px 490px;
+
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    /* Add this line */
+    background-position: center center;
+    /* Add this line */
+    background-repeat: no-repeat;
+    /* Add this line */
+    background-attachment: fixed;
+    /* Add this line */
+}
+
+#how_it_work i {
+    color: rgb(15, 53, 15);
+    font-size: 32px;
+}
+
+#home h1 {
+    font-size: 3em;
+}
+
+section h2 {
+    font-size: 2.5em;
+}
+
+.hr-lines {
+    position: relative;
+    /*This makes it the positioned ancestor for all elements within it.*/
+    max-width: 600px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.hr-lines:before {
+    content: " ";
+    height: 2px;
+    width: 130px;
+    background: rgb(14, 54, 26);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+.hr-lines:after {
+    content: " ";
+    height: 2px;
+    width: 130px;
+    background: rgb(14, 54, 26);
+    display: block;
+    position: absolute;
+    /*This makes it the positioned ancestor for all elements within it.*/
+    top: 50%;
+    right: 0;
+}
+
+section h3 {
+    font-size: 1.5em;
+    width: auto;
+}
+
+#how_it_work {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(105, 164, 104, 0.75)), url("% static 'pexels-harsh-tripathi-1763700.jpg' %}");
+}
+/* Float four columns side by side */
+.column {
+    float: left;
+    align-items: center;
+    width: 25%;
+    padding: 0 40px;
+    justify-content: center;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    border: 9px;
+    border-style: double;
+  }
+  .clickimg {
+    width: 60%;
+    height: 30vh;
+    border-radius:50% 5% ;
+
+}
+   
+        </style>
+    </head>
+    <body>
+        <!--This button makes it easier for the user to get to the beginning of the page again-->
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+        <!--The first part in page-->
+        <header>
+            <!--Create a navbar-->
+        <nav class="container" id="home"><!--we use nav because we have links and menus-->
+            <div class="navbar">
+            <img src="{% static 'rapid-detection-of-plant-disease-low-resolution-logo-color-on-transparent-background.png' %}" class="profile-img">
+            <ul><!--list-->
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#how_it_work" class="active">About</a></li>
+                <li><a href="http://localhost:8000/signup" class="active">Try Now</a></li>
+                <li><a href="http://localhost:8000/emp" class="active"><i class="fa-solid fa-person-chalkboard" style="color: rgb(255, 255, 255);"></i></a></li>
+            </ul>
+        </div>
+        <img src="{% static 'rapid-detectionofplant-disease-low-resolution-logo-color-on-transparent-background.png' %}" class="profile-img1">
+        </nav>
+    </header>
+    <!--The second part in page-->
+        <main>
+            <section id="how_it_work"><!--helps in organizing the page into meaningful parts-->
+                <div class="section-inner">
+                    <h2 class="hr-lines">Rapid Diagnose</h2><br><br>
+                    <p style="font-family: serif; font-size: 40px;"><b>One of it's kind AI-Powered Disease Detection to help <br> plant growers find and cure diseases before it's too late</b></p>
+                    <br><br><h3>How to use plant AI:</h3><br><br>
+                    <div class="row">
+                        <div class="column">
+                          <div class="card">
+                            <h3><i class="fa-solid fa-camera"></i> Click a picture</h3>
+                            <p><img src="{% static 'pexels-photo-4336126.jpeg' %}" class="clickimg"></p>
+                          </div>
+                        </div>
+                      
+                        <div class="column">
+                          <div class="card">
+                            <h3><i class="fa-solid fa-cloud-arrow-up"></i> Upload photo</h3>
+                            <p><img src="{% static 'v4-460px-Upload-Images-to-the-Internet-Step-25-Version-4.jpg' %}" class="clickimg"></p>
+                          </div>
+                        </div>
+                        
+                        <div class="column">
+                          <div class="card">
+                            <h3><i class="fa-brands fa-get-pocket"></i><b> Get result</h3>
+                              <p><img src="{% static '207-2079156_measure-outcomes-results-icon-results-png.png' %}" class="clickimg"></p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script>
+            // Get the button, ID is myBtn
+            let mybutton = document.getElementById("myBtn");
+            
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            function scrollFunction() {
+              if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+              } else {
+                mybutton.style.display = "none";
+              }
+            }
+            
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+            }
+            </script>         
+</body>
+</html>

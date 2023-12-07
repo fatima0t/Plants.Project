@@ -1,0 +1,250 @@
+<!--done!-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up and Sign In form</title>
+    <link rel="icon" type="image/x-icon"
+        href="{% static 'rapid-detection-of-plant-disease-low-resolution-logo-color-on-transparent-background.png' %}">
+    <script type="text/javascript"
+        src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=NAJtxidH1xPGam-BKaZICzxckZ7GID-hqBAIuvqtmbCCwP8rEOrLbz7AEB1Zm5YqZ0mLhIamY5mh2LfVdMEUVNqNtL_ymYknWpcroHVRrsXg93VJJ7mX4vO554ZKAROg9hb15z5MK-vgwAkEYtGQyLjsjJeBAasLznz5kHRWGyqdGlEsCGG0MfWPelpU0P_ZIy48sO3MlRG4XaQfuV4DoauNRshfDYTyrp7_rCcljCnQE53_MfwdyxdZT_mFHJyT2lhjnxT-Ht7bi3Ny1TzzNapc_I5cK6yinN4uLVzcTAQhcHK_rVIiyAwVX62yhNrJGBjgU0DMkomyVQeRiPftjVrMyRT75zbhCy3QY7Zoj9l1C811ff0HHqmJvwIOp3_dXan5iymNX8gpJ4M-caN7fzeWaU3bn5g2gzZ31TbkCcyIR-n66zhhSemoHsD1MjwawetCOG8dQMzx-j_Y6rJAEMBcORrFjcVlkadLJrJWZg61Vkn_Lp9q6zYjMFh09dh5h1LgRk8lZUnl293kuf_js7BY5MwsYGjs_Cq4tQW_T_WrSrCzJVoz1mCkcQyIek_wqzp3lm06XkoMahI-Wd6CkX9XsxvZ56hrWvEWzfaZLQC4FvPYVGRlFbQNjSQvxqufx0idqYBPZeYuvTPBx2hUc02XHVAolAS4hxHNJxsj0ZKBABhThuaDAC4Bmjo7ahcDz0LoXICVFX2gWOYyySp3yViiFjmVrn7lRwQqqvlwxNR3LxmQf2__IHuf7IiUSjUHdoVF_Ml_bWYHBXYaBFSAlUwt4eqPhL8ZsM0mmsnTet5P7Ss_OA3Aa1eD60r6aJbNEMZGzxv6AAVhmt9aybRLGkM7GZxrPGCTcXm9zKrC6pN7KVSO3dTsUByoLUjToJHqLxTeo_ItQauW0658g2UZ5LKw202TrSfM4ugp9wrxR6SbG5NadORwDZets7o6aXe_GWDRJbWaWnxLrhlEgmyZMkWxsG5BIBgjmyAfy2TlCJpbxZfov_JDcVJR4kPp5sVj_w5-UTWU6N_uudquTJUbLQfV7Co-mTJtnv3q3c0kNSZtt4ITwqjZ3w1JPsDOPn_CXnMYbk2knzav9CKD0kqc-rWC3iZZrHU9dGm3aOPkbq0LRlcvhUZD0Z7IXgP9ds38dEghanJMGCToe1W2LViHWyVusAygXVVjENz59YWU2dCbIDHacTW9InDgTzs4hSvGY9hbU8keXbg2nA1AB56G_omsONQxxW6SoS3AYBvUX-ZLE7jd_FY-wQGRzD0XKtOwNaY1M3xZM7Ro5S-U9b7NIdfsdyC3ZIgeHRuyGubq-i5Vzhpvo2z5RUYJW4KEmr9fJNczKrUfR9attNHdjvh4RlgEPDCjsD3Dc3OqAfAbrmbnWL22zteFsvPZYcW3t3jWogR7VNutByFoJDmyvA_t6_msovS1tH-pf252uzccAc4gZNGE7PixuAhe3u-Aw8DYLTB6w9MeIxT985zdDNDwth-u2BBkEWVg9Qi4n86B9PJZmx9gtQil1x0EqUHWil4AfV8ynSbPVapGXYETrJFcW-LoYvv9KhbZa_ipW49zjctpsgQ8HtVjD1XME9u2N3tR"
+        charset="UTF-8"></script>
+    <script src="https://kit.fontawesome.com/64be22047d.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(3, 32, 11, 0.8), rgba(20, 32, 1, 0.8)), url("{% static 'pexels-luriko-yamaguchi-2350377.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .form-box {
+            width: 90%;
+            max-width: 450px;
+            height: 650px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 50px 60px 70px;
+            text-align: center;
+            border-radius: 50px 5px;
+        }
+
+        .form-box h1 {
+            font-size: 30px;
+            margin-bottom: 60px;
+            color: #063806;
+            position: relative;
+            font-family: fantasy;
+        }
+
+        .form-box h1::after {
+            content: '';
+            width: 30px;
+            height: 4px;
+            border-radius: 3px;
+            background: #0e6f25;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .input-field {
+            background: #eaeaea;
+            margin: 15px 0;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            max-height: 65px;
+            transition: max-height 0.5s;
+            overflow: hidden;
+        }
+
+        .input-field1 {
+            background: #eaeaea;
+            margin: 15px 0;
+            border-radius: 3px;
+            display: none;
+            align-items: center;
+            max-height: 65px;
+            transition: max-height 0.5s;
+            overflow: hidden;
+        }
+
+        input {
+            width: 100%;
+            background: transparent;
+            border: 0;
+            outline: 0;
+            padding: 18px 15px;
+
+        }
+
+        .input-field i {
+            margin-left: 15px;
+            color: #999;
+        }
+
+        .lost-field {
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .lost-field p a {
+            text-decoration: none;
+            color: #3c00a3;
+        }
+
+        .btn-field {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+        }
+
+        .btn-field button {
+            flex-basis: 48%;
+            background: #0e6f25;
+            color: #fff;
+            height: 40px;
+            border-radius: 20px;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            transition: background 1s;
+        }
+
+        .input-group {
+            height: 200px;
+        }
+
+        .btn-field button.disable {
+            background: #eaeaea;
+            color: #555;
+
+        }
+
+        .btnsubmit {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            align-content: center;
+        }
+
+        .btnsubmit button {
+            flex-basis: 60%;
+            color: #0e6f25;
+            background-color: #fff;
+            height: 60px;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            transition: background 1s;
+            display: inline-block;
+            font-size: 32px;
+        }
+
+        .btnsubmit .btnsubmit .signin {
+            display: none;
+        }
+    </style> 
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            {% for msg in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong></strong> {{ msg }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="close"></button>
+            </div>
+
+
+            {% endfor %}
+            <div class="btn-field">
+                <button type="button" id="signupBtn">Sign Up</button>
+                <button type="button" id="signinBtn" class="disable">Sign In</button>
+            </div><br><br>
+            <h1 id="title">Sign Up</h1>
+
+            <form action="" method="post">
+                <div class="input-group">
+                    <div class="input-field" id="namefield">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" name="name" placeholder="Enter your Username">
+                    </div>
+                    <div class="input-field" id="mailfield">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" name="email" placeholder="Enter your Email">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="password" placeholder="Enter your Password">
+                    </div>
+                </div><br>
+                <div class="input-field1" id="lostpass" style=background-color:#fff>
+                    <p>Lost password <a href="http://localhost:8000/reset_password">Click Here!</a></p>
+                </div>
+                <br>
+                <div class="btnsubmit">
+                    {% csrf_token %}<br>
+                    <button type="submit" id="btn1" name='signup' class="signup"><i
+                            class="fa-solid fa-user-plus"></i></button><br>
+                    <button type="submit" id="btn2" name='signin' style="display: none;" class="signin"><i
+                            class="fa-solid fa-right-to-bracket"></i></button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+    </div>
+
+    <script>
+        let namefield = document.getElementById("namefield")
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        let title = document.getElementById("title");
+        let lostpass = document.getElementById("lostpass");
+        let btn1 = document.getElementById("btn1");
+        let btn2 = document.getElementById("btn2");
+
+        signinBtn.onclick = function () {
+            lostpass.style.display = "flex";
+            namefield.style.maxHeight = "0px";
+            title.innerHTML = "Sign In";
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
+            lostpass.style.maxHeight = "60px";
+            btn1.style.display = "none";
+            btn2.style.display = "inline-block";
+        }
+        signupBtn.onclick = function () {
+            namefield.style.maxHeight = "60px";
+            title.innerHTML = "Sign Up";
+            signupBtn.classList.remove("disable");
+            signinBtn.classList.add("disable");
+            lostpass.style.maxHeight = "0";
+            btn1.style.display = "inline-block";
+            btn2.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

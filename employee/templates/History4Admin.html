@@ -1,0 +1,157 @@
+<!--done!-->
+{% load static %}
+<!DOCTYPE html>
+{% block content %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/64be22047d.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon"
+        href="{% static 'rapid-detection-of-plant-disease-low-resolution-logo-color-on-transparent-background.png' %}">
+    <title>Employee Record</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        background-image: url("{% static 'pexels-codioful-(formerly-gradienta)-7130532.jpg' %}");
+        background-position: right bottom, left top;
+        background-repeat: no-repeat, repeat;
+        background-size: cover;
+        position: relative;
+        align-items: center;
+    }
+
+    .navbar {
+        height: 80px;
+        width: 100%;
+        background: rgba(179, 178, 178, 0.04);
+        position: fixed;
+    }
+
+    .container table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: medium;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+
+    tr:nth-child(even) {
+        background-color: #6ab281;
+    }
+
+    th {
+        background-color: #0f6847;
+        color: white;
+    }
+
+    .navimg {
+        height: 70px;
+        width: 20%;
+        justify-content: center;
+        float: left;
+    }
+
+    h1 {
+        text-align: center;
+        color: #0d4a33;
+        text-shadow: 2px 2px 5px rgb(28, 125, 46);
+    }
+
+    .btn .accept {
+        color: #118223;
+        font-size: larger;
+    }
+
+    .btn .reject {
+        color: #821111;
+        font-size: larger;
+    }
+</style>
+
+<body>
+    <div class="container">
+        {% csrf_token %}
+
+        <H1 style="font-family: 'Times New Roman', Times, serif;"> show history</H1>
+
+        <br><br>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Type</th>
+                    <th>Photo</th>
+                    <th>Path</th>
+                    <th>Result</th>
+                    <th>Time</th>
+                    <th>Operate</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for row in result %}
+                <tr>
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+                    <!--<td><img src="{% static 'pexels-codioful-(formerly-gradienta)-7130532.jpg' %}" width="150" height="100" alt="Image"></td>-->
+                    <!--{% if row.2 %}
+                    <td>
+                        <img src="(" {{row.2}}").ToString() % width="150" height="100" />
+                    </td>
+                    {% endif %} -->
+                    <td><img src="{% static row.3 %}" width="150" height="100" alt="Image"></td>
+                    <td>{{row.3}}</td>
+                    <td>{{row.4}}</td>
+                    <td>{{row.5}}</td>
+                    <td>
+                        <div class="btn">
+                            <!--<a href="/deletephoto/{{row.0}}" class="reject"><i class="fa-solid fa-square-xmark"></i></a> -->
+                            <a href="/deletephoto/{{row.0}}" class="reject"><i class="fa-solid fa-square-xmark"></i></a>
+
+                        </div>
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+
+
+
+        </table>
+
+
+        <br>
+        <br>
+
+
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

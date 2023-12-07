@@ -1,0 +1,274 @@
+<!--done!-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Proccessing</title>
+    <link rel="icon" type="image/x-icon"
+        href="{% static 'rapid-detection-of-plant-disease-low-resolution-logo-color-on-transparent-background.png' %}">
+    <script src="https://kit.fontawesome.com/64be22047d.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(105, 164, 104, 0.1)), url("{% static '07ffb04a1512fc231376c4084e06515c.jpg' %}");
+            background-size: cover;
+
+        }
+
+        .container label {
+            font-family: 'Times New Roman', Times, serif;
+            font: bold;
+            color: rgb(255, 255, 255);
+            font-size: 30px;
+            align-items: start;
+            margin: 10%;
+            text-align: center;
+        }
+
+        .container select {
+            background-color: rgba(3, 5, 3, 0.8);
+            color: white;
+            padding: 12px;
+            width: 250px;
+            border: none;
+            border-radius: 15%;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            box-shadow: 0 5px 25px rgba(0, 0, 0);
+            -webkit-appearance: button;
+            appearance: button;
+            outline: none;
+        }
+
+        .form-box {
+            margin-top: 50px;
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(13, 33, 9, 0.7);
+            padding: 50px 60px 70px;
+            text-align: center;
+            border: 9px;
+            border-style: groove;
+            border-radius: 50% 5%;
+        }
+
+        .container:hover::before {
+            color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container select option {
+            padding: 30px;
+        }
+
+        input[type="file"] {
+            padding: 4px;
+            margin: -4px;
+            position: relative;
+            outline: none;
+
+            /* File Selector Button Styles */
+            &::file-selector-button {
+                padding: 0 16px;
+                height: 40px;
+                cursor: pointer;
+                background-color: rgba(255, 255, 255, 0.01);
+                border: none;
+                border-radius: 15%;
+                border-color: #0c271d;
+                font-size: 20px;
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: bold;
+                margin-right: 16px;
+
+                /*
+      This is a hack to change the button label. 
+      I'm hiding the default label and then 
+      manually applying the width based on 
+      updated icon and label.
+    */
+                width: 132px;
+                color: transparent;
+
+                /*
+      Firefox doesn't support the pseudo ::before 
+      or ::after elements on this input field so 
+      we need to use the @supports rule to enable 
+      default styles fallback for Firefox.
+    */
+                @supports (-moz-appearance: none) {
+                    color: var(--primary-color);
+                }
+
+                &:hover {
+                    background-color: #f3f4f6;
+                }
+
+                &:active {
+                    background-color: #e5e7eb;
+                }
+            }
+
+            /* Faked label styles and icon */
+            &::before {
+                position: absolute;
+                pointer-events: none;
+                top: 14px;
+                left: 16px;
+                height: 20px;
+                width: 20px;
+                content: "";
+                background-image: url("{% static '07ffb04a1512fc231376c4084e06515c.jpg' %}");
+            }
+
+            &::after {
+                position: absolute;
+                pointer-events: none;
+                top: 16px;
+                left: 40px;
+                color: var(--primary-color);
+                content: "Upload File";
+            }
+
+            /* Handle Component Focus */
+            &:focus-within::file-selector-button,
+            &:focus::file-selector-button {
+                outline: 2px solid var(--primary-color);
+                outline-offset: 2px;
+            }
+        }
+
+        .btn-submit button {
+            flex-basis: 60%;
+            color: rgb(11, 35, 16);
+            font-family: fantasy;
+            height: 60px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.01);
+            cursor: pointer;
+            font-size: 20px;
+            border-color: #0c271d;
+            flex-basis: 60%;
+            transition: background 1s;
+            display: inline-block;
+        }
+
+        .btn-submit button:hover {
+            background-color: #1b382e;
+            color: rgb(99, 104, 99);
+        }
+
+        #result-label {
+            text-align: center;
+            color: rgb(11, 35, 16);
+            font-weight: bold;
+        }
+
+        .container .navbar {
+            height: 80px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .container .navbar ul {
+            float: right;
+            margin-right: 20px;
+        }
+
+        .container .navbar ul li {
+            list-style: none;
+            margin: 0 8px;
+            display: inline-block;
+            line-height: 80px;
+        }
+
+        .container .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 6px 13px;
+            font-size: 20px;
+            font-family: Impact, Haettenschweiler, 'Roboto Narrow Bold', sans-serif;
+            transition: 0.4s;
+        }
+
+        .container .navbar ul li a.active:hover {
+            background: gray;
+            border-radius: 2px;
+        }
+
+        .navimg {
+            height: 70px;
+            width: 10%;
+            justify-content: center;
+            float: left;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        /*.btn-submit .save {
+            display: none;
+        }*/
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <nav>
+                <img src="{% static 'rapid-diagnose-low-resolution-logo-color-on-transparent-background.png' %}" class="navimg">
+                <ul>
+                    <li><a class="active" href="http://localhost:8000/showhistory">View History</a></li>
+                    <li><a href="http://localhost:8000/emp"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="form-box">
+            <form action="" method="post" >
+                {% csrf_token %}
+                <br><br><br>
+                <input type="text" name="code" placeholder="Enter your Code"><br><br>
+                
+
+                <div class="btn-submit">
+                    
+                    
+                    <br><br><br>
+                    <button type="submit" id="save" name='submit' class="save"><i class="fa-solid fa-bookmark"></iclass></i>Show My History </button>
+                    
+                    
+                
+            
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        let showresult = document.getElementById("upload-button");
+        let saveresult = document.getElementById("save");
+
+        showresult.onclick = function () {
+            saveresult.style.display = "inline-block";
+        }
+
+    </script>
+
+   
+</body>
+
+</html>
